@@ -7,8 +7,8 @@ namespace BlockchainDemo
     {
         static void Main(string[] args)
         {
-            var startTime = DateTime.Now;
-
+            //var startTime = DateTime.Now;
+            ElapsedTimer timer = new ElapsedTimer();
             Blockchain phillyCoin = new Blockchain();
             phillyCoin.CreateTransaction(new Transaction("Henry", "MaHesh", 10));
             phillyCoin.ProcessPendingTransactions("Bill");
@@ -17,9 +17,9 @@ namespace BlockchainDemo
             phillyCoin.CreateTransaction(new Transaction("MaHesh", "Henry", 5));
             phillyCoin.ProcessPendingTransactions("Bill");
 
-            var endTime = DateTime.Now;
+            //var endTime = DateTime.Now;
 
-            Console.WriteLine($"Duration: {endTime - startTime}");
+            Console.WriteLine($"Duration: {timer.ElapsedTime()}");
 
             Console.WriteLine("=========================");
             Console.WriteLine($"Henry' balance: {phillyCoin.GetBalance("Henry")}");

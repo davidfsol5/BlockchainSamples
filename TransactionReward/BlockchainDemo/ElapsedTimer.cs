@@ -6,17 +6,13 @@ namespace BlockchainDemo
 {
     class ElapsedTimer
     {
-        DateTime startTime { get; set;  }
+        DateTime startTime { get; }
 
         public ElapsedTimer()
         {
-            this.Reset();
-        }
-
-        public void Reset()
-        {
             startTime = DateTime.Now;
         }
+
         public TimeSpan ElapsedTime()
         {
             return DateTime.Now - startTime;

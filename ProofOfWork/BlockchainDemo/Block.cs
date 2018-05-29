@@ -36,6 +36,7 @@ namespace BlockchainDemo
         public void Mine(int difficulty)
         {
             var leadingZeros = new string('0', difficulty);
+            this.Hash = null;
             while (this.Hash == null || this.Hash.Substring(0, difficulty) != leadingZeros)
             {
                 this.Nonce++;
