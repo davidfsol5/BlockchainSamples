@@ -8,7 +8,7 @@ namespace BlockchainDemo
         static void Main(string[] args)
         {
             ElapsedTimer timer = new ElapsedTimer();
-            int miningDifficulty = 4;
+            int miningDifficulty = 3;
             Console.WriteLine($"Starting chain, difficulty {miningDifficulty}...");
 
             // Create a blocjchain and mine three blocks.
