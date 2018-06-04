@@ -10,7 +10,7 @@ namespace BlockchainDemo
         public int Index { get; set; }
         public DateTime TimeStamp { get; set; }
         public string PreviousHash { get; set; }
-        public string Hash { get; set; }
+        public string Hash { get; set; } = null;
         public string Data { get; set; }
         public int Nonce { get; set; } = 0;
 
@@ -20,7 +20,6 @@ namespace BlockchainDemo
             TimeStamp = timeStamp;
             PreviousHash = previousHash;
             Data = data;
-            Hash = CalculateHash();
         }
 
         public string CalculateHash()
@@ -35,9 +34,10 @@ namespace BlockchainDemo
 
         public void Mine(int difficulty)
         {
-            var leadingZeros = new string('0', difficulty);
-            this.Hash = null;
-            while (this.Hash == null || this.Hash.Substring(0, difficulty) != leadingZeros)
+            string validMingingPrefix = new string('0', difficulty);
+
+            this.Hash = this.CalculateHash();
+            while (this.Hash.Substring(0, difficulty) != validMingingPrefix)
             {
                 this.Nonce++;
                 this.Hash = this.CalculateHash();
